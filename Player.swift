@@ -16,11 +16,7 @@ class Player {
     static private(set) var shared = Player()
     
     var bodyType: BodyType = BodyType.normal
-    let dailyRestingEnergy = 1600 // kkal
     var currentEnergyDelta = 0 // kkal
-    var sodiumConsumed = 0
-    var sugarConsumed = 0
-    var currentWater = -2000
     
     private init (_ bodyType: BodyType = BodyType.normal) {
         self.bodyType = bodyType
@@ -46,13 +42,9 @@ class Player {
     
     func eat(_ food: Food) {
         self.currentEnergyDelta += food.calories
-        self.sugarConsumed += food.sugarContent
-        self.sodiumConsumed += food.sodiumContent
     }
     func cancelEat(_ food: Food) {
         self.currentEnergyDelta -= food.calories
-        self.sugarConsumed -= food.sugarContent
-        self.sodiumConsumed -= food.sodiumContent
     }
     
     func doing(_ activity: Activity) {
@@ -60,10 +52,6 @@ class Player {
     }
     func cancelDoing(_ activity: Activity) {
         self.currentEnergyDelta += self.getCaloriesFactored(activity.energyCost)
-    }
-    
-    func drink(_ mL: Int) {
-        self.currentWater += mL
     }
     
 }

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct MainMenuView: View {
     var body: some View {
-        VStack {
+        ZStack {
+            ZStack {}
+            .frame( maxWidth: .infinity, maxHeight: .infinity)
+            .background(Image("menuBg").resizable().aspectRatio(contentMode: .fill))
+            .ignoresSafeArea()
             VStack{
                 Spacer()
                 Text("DietLife")
@@ -21,11 +25,18 @@ struct MainMenuView: View {
                     .fontWeight(Font.Weight.light)
                     .multilineTextAlignment(.center)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
-                Text("You will help the BMI type of person (named Budi) of your selection to achieve optimal diet for his days, but now he is stranded in a mountain full of Indonesian cuisine.\n\nYou will be given choices of several Indonesian diet throughout the day and activity that help him balanced out his diet.")
-                    .multilineTextAlignment(.center)
-                Text("\nAll activity and food options that will be given are multichoice, you can skip if you want. Make sure you discover all foods.")
-                    .multilineTextAlignment(.center)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
+                VStack {
+                    Text("You will help the BMI (Body Measured Index) type of person (named Budi) of your selection to achieve optimal diet for his days. Assuming he can teleport anywhere as long it's in Indonesia.\n\nYou will be given choices of several Indonesian diet throughout the day and activity that help him balanced out his diet.")
+                        .multilineTextAlignment(.center)
+                        .padding()
+                    Text("All activity and food options that will be given are multichoice, you can skip if you want. Make sure you discover all foods.")
+                        .multilineTextAlignment(.center)
+                        .padding()
+                }
+                    .background(Color.ui.light)
+                    .foregroundColor(.black)
+                    .cornerRadius(8)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
                 NavigationLink(destination: SetupScreenView()) {
                     Text("Play")
                         .frame(maxWidth: 300, alignment: .center)

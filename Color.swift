@@ -12,6 +12,7 @@ extension Color {
     
     struct UI {
         let light = Color("Light")
+        let black = Color("Black")
         let menuBg = Color("MenuBg")
         let imageBg = Color("ImageBg")
         let navButton = Color("NavButton")

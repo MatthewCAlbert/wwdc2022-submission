@@ -19,15 +19,16 @@ struct FoodButtonView: View {
             VStack(spacing: 0) {
                 Image(food.imageName)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFill()
                     .frame(width: 165, height: 85)
                     .background(Color.ui.imageBg)
+                    .clipped()
                 HStack(alignment: .center, spacing: 0) {
                     Text(food.name)
                         .frame(width: 110, height: 40, alignment: .leading)
                         .foregroundColor(.white)
                     Image(systemName: "checkmark")
-                        .foregroundColor(.green)
+                        .foregroundColor(Color.ui.light)
                         .frame(width: 25, height: 25)
                         .opacity( selected ? 1.0 : 0.0 )
                 }.frame(width: 165)

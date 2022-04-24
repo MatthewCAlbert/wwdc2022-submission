@@ -22,9 +22,10 @@ struct FoodDetailModalView: View {
                 
                 Image(food.imageName)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: metrics.size.width, height: (metrics.size.width * (9.0/16.0)))
                     .background(Color.ui.imageBg)
+                    .clipped()
                 
                 HStack {
                     Image(systemName: "mappin.and.ellipse")
@@ -34,6 +35,7 @@ struct FoodDetailModalView: View {
                     Text(food.location)
                         .font(.body)
                 }
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                     .frame(width: metrics.size.width, alignment: .leading)
                 
                 HStack {
@@ -72,7 +74,8 @@ struct FoodDetailModalView: View {
                     .cornerRadius(8)
             }
         }
-        .padding(20)
+        .foregroundColor(Color.ui.black)
+        .padding(EdgeInsets(top: 30, leading: 20, bottom: 20, trailing: 20))
     }
 }
 

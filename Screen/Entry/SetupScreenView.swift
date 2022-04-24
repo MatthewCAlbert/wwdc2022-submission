@@ -14,7 +14,7 @@ struct SetupScreenView: View {
         VStack {
             VStack{
                 Spacer()
-                Text("Pick His Body Type")
+                Text("Pick His Body BMI")
                     .font(.largeTitle)
                     .fontWeight(Font.Weight.bold)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))

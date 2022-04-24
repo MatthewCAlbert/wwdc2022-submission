@@ -34,7 +34,7 @@ struct FoodSelectorView: View {
 struct FoodSelectorView_Previews: PreviewProvider {
     static let foods = (0...3).map({ i -> Food in
         let f = foodExample
-        return Food(name: f.name + String(i), calories: f.calories, sugarContent: f.sugarContent, sodiumContent: f.sodiumContent, imageName: f.imageName, location: f.location, description: f.description)
+        return Food(name: f.name + String(i), calories: f.calories, imageName: f.imageName, location: f.location, description: f.description)
     })
     
     static var previews: some View {
