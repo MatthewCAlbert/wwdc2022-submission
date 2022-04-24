@@ -97,6 +97,24 @@ struct EndResultView: View {
                             .multilineTextAlignment(.center)
                     }
                     Spacer()
+                    Button(action: {
+                        HapticManager.shared.impact(style: .light)
+                        showModal = true
+                    }){
+                        HStack {
+                            Text("About")
+                            Image(systemName: "info.circle.fill")
+                        }
+                            .frame(maxWidth: 300, alignment: .center)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.ui.navButton)
+                            .cornerRadius(8)
+                    }
+                        .sheet(isPresented: $showModal) {
+                            AboutModalView()
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                     Text("Play again?")
                         .multilineTextAlignment(.center)
                     NavigationLink(destination: MainMenuView(), isActive: $nextPageActive) {

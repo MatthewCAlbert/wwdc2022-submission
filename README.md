@@ -6,8 +6,8 @@ You will help the BMI (Body Measured Index) type of person (named Budi) of your 
 All activity and food options that will be given are multichoice, you can skip them if you want. Make sure you discover all foods.
 At the end of the story, after you make choices, it will respond to how many calories he loses or add to his body with a normal BMI target in mind.
  
-
 Submission for Swift Student Challenge - WWDC 22
+By Matthew Christopher Albert 🇮🇩 
 
 ## Using
 
