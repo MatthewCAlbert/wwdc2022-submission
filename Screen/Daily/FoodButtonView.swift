@@ -21,7 +21,7 @@ struct FoodButtonView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 165, height: 85)
-                    .background(Color.pink)
+                    .background(Color.ui.imageBg)
                 HStack(alignment: .center, spacing: 0) {
                     Text(food.name)
                         .frame(width: 110, height: 40, alignment: .leading)
@@ -32,10 +32,10 @@ struct FoodButtonView: View {
                         .opacity( selected ? 1.0 : 0.0 )
                 }.frame(width: 165)
             }
-            .border(.yellow, width: selected ? 5 : 0)
+            .border(Color.ui.light, width: selected ? 5 : 0)
             .cornerRadius(20)
         }
-        .background(Color.gray)
+        .background(Color.ui.selectionButton)
         .cornerRadius(20)
         .sheet(isPresented: $showModal) {
             FoodDetailModalView(food: food, opened: self.$showModal, selected: self.$selected)

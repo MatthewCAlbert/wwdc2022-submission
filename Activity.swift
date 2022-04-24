@@ -15,6 +15,11 @@ class ActivityList {
     
     static let morning = [
         Activity(name: "Morning Run", energyCost: 300),
+        Activity(name: "Meditating", energyCost: 300),
+        Activity(name: "Meditating", energyCost: 300),
+        Activity(name: "Meditating", energyCost: 300),
+        Activity(name: "Meditating", energyCost: 300),
+        Activity(name: "Meditating", energyCost: 300),
         Activity(name: "Meditating", energyCost: 300)
     ]
     

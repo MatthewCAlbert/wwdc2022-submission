@@ -8,7 +8,7 @@
 enum BodyType: String {
     case skinny = "Skinny"
     case normal = "Normal"
-    case fat = "Fat"
+    case fat = "Large"
 }
 
 class Player {

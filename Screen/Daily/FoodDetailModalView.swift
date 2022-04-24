@@ -24,7 +24,7 @@ struct FoodDetailModalView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: metrics.size.width, height: (metrics.size.width * (9.0/16.0)))
-                    .background(Color.pink)
+                    .background(Color.ui.imageBg)
                 
                 HStack {
                     Image(systemName: "mappin.and.ellipse")
@@ -67,7 +67,9 @@ struct FoodDetailModalView: View {
                         .padding(20)
                         .frame(width: metrics.size.width, alignment: .center)
                 }
-                    .background(Color.pink).cornerRadius(20)
+                    .foregroundColor(.white)
+                    .background(Color.ui.selectionButton)
+                    .cornerRadius(8)
             }
         }
         .padding(20)

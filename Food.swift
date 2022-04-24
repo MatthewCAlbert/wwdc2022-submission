@@ -15,9 +15,37 @@ struct Food {
     var description:  String = ""
 }
 
-let foodList = [
-    Food(name: "Mutter", calories: 300, sugarContent: 20, sodiumContent: 20)
-]
+class FoodList {
+    
+    static let morning = [
+        Food(
+            name: "Sate Ayam",
+            calories: 300, sugarContent: 20, sodiumContent: 20,
+            location: "Bandung, West Java",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque quis cum aliquam. Est eu in enim et sociis urna tortor ut. Feugiat lectus egestas tellus placerat tellus, id scelerisque fringilla ultrices. Blandit in cursus mi convallis elementum fames nisi sollicitudin."
+        )
+    ]
+    
+    static let afternoon = [
+        Food(
+            name: "Sate Ayam",
+            calories: 300, sugarContent: 20, sodiumContent: 20,
+            location: "Bandung, West Java",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque quis cum aliquam. Est eu in enim et sociis urna tortor ut. Feugiat lectus egestas tellus placerat tellus, id scelerisque fringilla ultrices. Blandit in cursus mi convallis elementum fames nisi sollicitudin."
+        )
+    ]
+    
+    static let evening = [
+        Food(
+            name: "Sate Ayam",
+            calories: 300, sugarContent: 20, sodiumContent: 20,
+            location: "Bandung, West Java",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin neque quis cum aliquam. Est eu in enim et sociis urna tortor ut. Feugiat lectus egestas tellus placerat tellus, id scelerisque fringilla ultrices. Blandit in cursus mi convallis elementum fames nisi sollicitudin."
+        )
+    ]
+    
+}
+
 
 let foodExample = Food(
     name: "Sate Ayam",

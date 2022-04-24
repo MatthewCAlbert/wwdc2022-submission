@@ -21,7 +21,7 @@ struct ActivityButtonView: View {
             selected.toggle()
         }) {
             HStack {
-                Text(activity.name)
+                Text(activity.name + " (" + String(Player.shared.getCaloriesFactored(activity.energyCost)) + " kcal)")
                     .padding()
                 Image(systemName: "checkmark")
                     .opacity(selected ? 1.0 : 0.0)
@@ -29,7 +29,7 @@ struct ActivityButtonView: View {
         }
         .frame(width: 300, alignment: .center)
         .foregroundColor(.white)
-        .background(selected ? .green : Color(hex: "7D0000"))
+        .background(selected ? .green : Color.ui.selectionButton)
         .cornerRadius(8)
     }
 }

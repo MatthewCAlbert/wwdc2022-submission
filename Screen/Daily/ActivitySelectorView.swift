@@ -18,7 +18,7 @@ struct ActivitySelectorView: View {
                         ActivityButtonView(activity: activity)
                     }
                 }
-                .frame(width: metrics.size.width)
+                .frame(width: metrics.size.width, height: metrics.size.height)
             }
         }
     }
