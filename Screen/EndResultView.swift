@@ -51,53 +51,56 @@ struct EndResultView: View {
         }
     }
     
+    @State var showModal = false
+    
     var body: some View {
-        VStack {
+        GeometryReader { metrics in
             VStack {
-                Spacer()
-                Text("The Results")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                HStack {
-                    Image(systemName: "flame")
-                        .foregroundColor(Color(hex: "FFB636"))
-                    Text(String(format: "%d kcal", energyDelta))
-                        .fontWeight(.semibold)
-                }
-                    .padding(10)
-                    .background(Color(hex: "7D0000"))
-                    .cornerRadius(8)
-                    .foregroundColor(.white)
-                Text(statusText)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .foregroundColor(.black)
-                    .background(Color.ui.light)
-                    .cornerRadius(8)
-                Text("\nDisclaimer")
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                Text("This is not a health recommender app, it's just an app to introduce some Indonesian Cuisine while also sharing the awareness of calories intake to keep your body fit. Don't forget to get enough water throughout the days. This program doesn't calculate resting energy cost.")
-                    .multilineTextAlignment(.center)
-                Spacer()
-                Text("Play again?")
-                    .multilineTextAlignment(.center)
-                NavigationLink(destination: MainMenuView()) {
-                    Button(action: {
-                    }) {
-                        Text("Restart")
-                    }
-                        .frame(maxWidth: 300, alignment: .center)
-                        .padding()
+                VStack {
+                    Spacer()
+                    Text("The Results")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .background(Color.ui.navButton)
+                    HStack {
+                        Image(systemName: "flame")
+                            .foregroundColor(Color(hex: "FFB636"))
+                        Text(String(format: "%d kcal", energyDelta))
+                            .fontWeight(.semibold)
+                    }
+                        .padding(10)
+                        .background(Color(hex: "7D0000"))
                         .cornerRadius(8)
+                        .foregroundColor(.white)
+                    VStack {
+                        Text(statusText)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                            .foregroundColor(.black)
+                            .background(Color.ui.light)
+                            .cornerRadius(8)
+                        Text("\nDisclaimer")
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
+                        Text("This is not a health recommender app, it's just an app to introduce some Indonesian Cuisine while also sharing the awareness of calories intake to keep your body fit. Don't forget to get enough water throughout the days. This program doesn't calculate resting energy cost.")
+                            .multilineTextAlignment(.center)
+                    }
+                    Spacer()
+                    Text("Play again?")
+                        .multilineTextAlignment(.center)
+                    NavigationLink(destination: MainMenuView()) {
+                        Text("Restart")
+                            .frame(maxWidth: 300, alignment: .center)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.ui.navButton)
+                            .cornerRadius(8)
+                    }
+                    Spacer()
                 }
-                Spacer()
+                .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
             }
-            .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
         }
         .foregroundColor(.white)
         .background(Color.ui.menuBg)

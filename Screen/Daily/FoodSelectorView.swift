@@ -26,6 +26,7 @@ struct FoodSelectorView: View {
                         )
                     }
                 }
+                .frame(width: metrics.size.width, height: metrics.size.height)
             }
         }
     }

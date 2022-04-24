@@ -4,9 +4,10 @@ import SwiftUI
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            NavigationView{
                 MainMenuView()
             }
+            .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarHidden(true)
         }
     }

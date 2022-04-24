@@ -42,13 +42,17 @@ struct DailyView: View {
                                 Image("person")
                                     .resizable().aspectRatio(contentMode: .fit)
                                     .frame(width: metrics.size.width, height: 250, alignment: .center)
-                                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                                    .padding(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
                             }
                         }
-                        if activites.count > 0 {
-                            ActivitySelectorView(activities: activites)
-                        } else {
-                            FoodSelectorView(foods: foods)
+                        VStack {
+                            Spacer()
+                            if activites.count > 0 {
+                                ActivitySelectorView(activities: activites)
+                            } else {
+                                FoodSelectorView(foods: foods)
+                            }
+                            Spacer()
                         }
                     }
                     if targetViewIndex >= 0 {

@@ -33,10 +33,9 @@ struct FoodButtonView: View {
                         .opacity( selected ? 1.0 : 0.0 )
                 }.frame(width: 165)
             }
-            .border(Color.ui.light, width: selected ? 5 : 0)
             .cornerRadius(20)
         }
-        .background(Color.ui.selectionButton)
+        .background(selected ? .green : Color.ui.selectionButton )
         .cornerRadius(20)
         .sheet(isPresented: $showModal) {
             FoodDetailModalView(food: food, opened: self.$showModal, selected: self.$selected)
