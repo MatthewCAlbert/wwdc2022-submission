@@ -1,2 +1,2 @@
-#  DietLife - Infonesia Version
+#  DietLife - Indonesia Version
 
