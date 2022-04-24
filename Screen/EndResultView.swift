@@ -52,6 +52,7 @@ struct EndResultView: View {
     }
     
     @State var showModal = false
+    @State var nextPageActive = false
     
     var body: some View {
         GeometryReader { metrics in
@@ -73,6 +74,15 @@ struct EndResultView: View {
                         .cornerRadius(8)
                         .foregroundColor(.white)
                     VStack {
+                        HStack {
+                            Text("Current Type:")
+                            Text(Player.shared.bodyType.rawValue)
+                                .fontWeight(.bold)
+                        }
+                            .padding(10)
+                            .background(Color.ui.light)
+                            .foregroundColor(.black)
+                            .cornerRadius(8)
                         Text(statusText)
                             .multilineTextAlignment(.center)
                             .padding()
@@ -89,13 +99,18 @@ struct EndResultView: View {
                     Spacer()
                     Text("Play again?")
                         .multilineTextAlignment(.center)
-                    NavigationLink(destination: MainMenuView()) {
+                    NavigationLink(destination: MainMenuView(), isActive: $nextPageActive) {
                         Text("Restart")
                             .frame(maxWidth: 300, alignment: .center)
                             .padding()
                             .foregroundColor(.white)
                             .background(Color.ui.navButton)
                             .cornerRadius(8)
+                            .onTapGesture {
+                                nextPageActive = true
+                                SoundManager.shared.playSound(.shoot)
+                                HapticManager.shared.impact(style: .medium)
+                            }
                     }
                     Spacer()
                 }
@@ -105,6 +120,9 @@ struct EndResultView: View {
         .foregroundColor(.white)
         .background(Color.ui.menuBg)
         .navigationBarHidden(true)
+        .onAppear {
+            SoundManager.shared.playSound(.tada)
+        }
     }
 }
 

@@ -13,6 +13,7 @@ Submission for Swift Student Challenge - WWDC 22
 
 - Swift 5
 - SwiftUI
+- AVKit
 
 ## Compatibility
 

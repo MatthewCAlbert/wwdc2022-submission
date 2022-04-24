@@ -13,8 +13,10 @@ struct ActivityButtonView: View {
     
     var body: some View {
         Button(action: {
+            HapticManager.shared.impact(style: .light)
             if !selected {
                 Player.shared.doing(activity)
+                SoundManager.shared.playSound(.knock)
             } else {
                 Player.shared.cancelDoing(activity)
             }

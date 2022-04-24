@@ -14,6 +14,8 @@ struct DailyView: View {
     let activites: [Activity]
     let foods: [Food]
     
+    @State var nextPageActive = false
+    
     var body: some View {
         GeometryReader { metrics in
             ZStack {
@@ -56,22 +58,32 @@ struct DailyView: View {
                         }
                     }
                     if targetViewIndex >= 0 {
-                        NavigationLink(destination: storyLane.pages[targetViewIndex]) {
+                        NavigationLink(destination: storyLane.pages[targetViewIndex], isActive: $nextPageActive) {
                             Text("Continue")
                                 .frame(maxWidth: 300, alignment: .center)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color.ui.navButton)
                                 .cornerRadius(8)
+                                .onTapGesture {
+                                    nextPageActive = true
+                                    SoundManager.shared.playSound(.flip)
+                                    HapticManager.shared.impact(style: .medium)
+                                }
                         }
                     } else {
-                        NavigationLink(destination: EndResultView()) {
+                        NavigationLink(destination: EndResultView(), isActive: $nextPageActive) {
                             Text("View Result")
                                 .frame(maxWidth: 300, alignment: .center)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color.ui.navButton)
                                 .cornerRadius(8)
+                                .onTapGesture {
+                                    nextPageActive = true
+                                    SoundManager.shared.playSound(.flip)
+                                    HapticManager.shared.impact(style: .medium)
+                                }
                         }
                     }
                 }

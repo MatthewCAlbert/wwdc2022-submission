@@ -15,6 +15,7 @@ struct FoodButtonView: View {
     var body: some View {
         Button(action: {
             self.showModal = true
+            HapticManager.shared.impact(style: .light)
         }) {
             VStack(spacing: 0) {
                 Image(food.imageName)

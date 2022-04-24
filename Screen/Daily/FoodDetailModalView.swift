@@ -50,17 +50,21 @@ struct FoodDetailModalView: View {
                 
                 Divider()
                 
-                Text(food.description)
-                    .font(.body)
-                    .frame(width: metrics.size.width, alignment: .leading)
+                ScrollView {
+                    Text(food.description)
+                        .font(.body)
+                        .frame(width: metrics.size.width, alignment: .leading)
+                }
                 
                 Spacer()
                 
                 Button(action: {
                     if !selected {
                         Player.shared.eat(food)
+                        SoundManager.shared.playSound(.crunch)
                     } else {
                         Player.shared.cancelEat(food)
+                        HapticManager.shared.impact(style: .medium)
                     }
                     selected.toggle()
                     self.opened = false

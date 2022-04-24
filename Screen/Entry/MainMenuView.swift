@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainMenuView: View {
+    @State var nextPageActive = false
+    
     var body: some View {
         GeometryReader { metrics in
             ZStack {
@@ -38,12 +40,17 @@ struct MainMenuView: View {
                         .foregroundColor(.black)
                         .cornerRadius(8)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
-                    NavigationLink(destination: SetupScreenView()) {
+                    NavigationLink(destination: SetupScreenView(), isActive: $nextPageActive) {
                         Text("Play")
                             .frame(maxWidth: 300, alignment: .center)
                             .padding()
                             .background(Color.ui.navButton)
                             .cornerRadius(8)
+                            .onTapGesture {
+                                nextPageActive = true
+                                SoundManager.shared.playSound(.flip)
+                                HapticManager.shared.impact(style: .medium)
+                            }
                     }
                     Spacer()
                 }

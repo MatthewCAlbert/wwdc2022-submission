@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SetupScreenView: View {
     @State var currentBodyType: BodyType?
+    @State var nextPageActive = false
     
     var body: some View {
         VStack {
@@ -28,6 +29,7 @@ struct SetupScreenView: View {
                         Button(action: {
                             currentBodyType = .skinny
                             Player.reInit(currentBodyType!)
+                            HapticManager.shared.impact(style: .light)
                         }) {
                             Image("skinny")
                                 .resizable()
@@ -40,6 +42,7 @@ struct SetupScreenView: View {
                         Button(action: {
                             currentBodyType = .normal
                             Player.reInit(currentBodyType!)
+                            HapticManager.shared.impact(style: .light)
                         }) {
                             Image("normal")
                                 .resizable()
@@ -52,6 +55,7 @@ struct SetupScreenView: View {
                         Button(action: {
                             currentBodyType = .fat
                             Player.reInit(currentBodyType!)
+                            HapticManager.shared.impact(style: .light)
                         }) {
                             Image("fat")
                                 .resizable()
@@ -64,7 +68,7 @@ struct SetupScreenView: View {
                     }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
-                NavigationLink(destination: storyLane.pages[0]) {
+                NavigationLink(destination: storyLane.pages[0], isActive: $nextPageActive) {
                     Text("Start the Day")
                         .multilineTextAlignment(.leading)
                         .frame(maxWidth: 300, alignment: .center)
@@ -72,6 +76,12 @@ struct SetupScreenView: View {
                         .foregroundColor(Color.white)
                         .background(Color.ui.navButton)
                         .cornerRadius(8)
+                        .onTapGesture {
+                            nextPageActive = true
+                            SoundManager.shared.playSound(.flip)
+                            HapticManager.shared.impact(style: .medium)
+                        }
+                        
                 }.disabled( currentBodyType == nil )
                 Spacer()
             }
